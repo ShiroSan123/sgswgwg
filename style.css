@@ -1,0 +1,226 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/*Color for 3 Color Schemes*/
+
+:root {
+	--c-text-primary: #191919;
+	--c-text-secondary: #737374;
+	--c-border-primary: #ccc;
+	--c-bg-body: #ccc;
+	--c-bg-primary: #fff;
+	--c-bg-secondary: #d4d8dd;
+	--c-bg-button: #fff;
+	--slider-shadow: inset 0 1px 1px #ddd, 0 2px 3px #ccc;
+}
+.dark-theme {
+	--c-text-primary: #eee;
+	--c-text-secondary: #d3d5db;
+	--c-border-primary: #454545;
+	--c-bg-primary: #323339;
+	--c-bg-secondary: #222128;
+	--c-bg-button: #494a50;
+	--slider-shadow: inset 0 1px 1px #767676;
+}
+
+body {
+	color: var(--c-text-primary);
+}
+
+.menu {
+	position: absolute;
+	min-width: 100px;
+	top: 0;
+	left: 0;
+}
+
+.menu-header {
+	border: 1px solid var(--c-text-primary);
+	text-align: center;
+	width: 90%;
+	max-width: 100px;
+	transition: background-color 0.15s ease;
+	border-radius: 5%;
+	box-shadow: 0 0 2px rgba(#000, 0.05), 0 -4px 16px rgba(#000, 0.1);
+}
+
+.menu-header {
+	padding: 1rem;
+}
+
+.menu-header-title {
+	font-size: 0.875rem;
+	color: var(--c-text-secondary);
+	margin-bottom: 0.375rem;
+	font-weight: 500;
+}
+
+.theme-switcher {
+	background-color: var(--c-bg-secondary);
+	border-radius: 10px;
+	padding: 0 3px;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+}
+
+.theme-switcher .slider {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	width: calc(100% - 6px);
+	top: 3px;
+	transform: translatex(-110%);
+	bottom: 3px;
+	border-radius: 6px;
+	transition: 0.15s ease, transform 0.25s ease-out;
+	background-color: var(--c-bg-button);
+	box-shadow: var(--slider-shadow);
+}
+
+.theme-switcher input {
+	display: none;
+}
+.theme-switcher input:nth-of-type(1):checked ~ .slider {
+	transform: translateX(0);
+}
+.theme-switcher label {
+	position: relative;
+	z-index: 2;
+	width: calc(100%);
+	color: var(--c-text-secondary);
+}
+.theme-switcher label span {
+	padding: 8px 0;
+	border-radius: 6px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 500;
+}
+.theme-switcher label svg {
+	display: inline-block;
+	margin-right: 0.5rem;
+	width: 20px;
+}
+
+.menu-body {
+	display: flex;
+	flex-direction: column;
+	padding: 0.5rem;
+	border-top: 1px solid var(--c-border-primary);
+	transition: border-color 0.15s ease;
+}
+.menu-body a {
+	text-decoration: none;
+	color: inherit;
+	display: flex;
+	align-items: center;
+	padding: 0.625rem 0.5rem;
+	border-radius: 4px;
+	font-weight: 500;
+	transition: 0.15s ease;
+}
+.menu-body a svg {
+	margin-right: 1rem;
+	color: var(--c-text-secondary);
+	transition: color 0.15s ease;
+}
+.menu-body a:hover {
+	background-color: var(--c-bg-secondary);
+}
+
+#scroll-animate {
+	overflow: hidden;
+}
+
+#scroll-animate-main {
+	width: 100%;
+	left: 0;
+	position: fixed;
+}
+
+#heightPage, #heightScroll {
+	width: 100%;
+	top: 0;
+	position: absolute;
+	z-index: 99;
+}
+
+#heightPage {
+	left: 0;
+}
+
+#heightScroll {
+	right: 0;
+}
+
+header {
+	width: 100%;
+	height: 100%;
+	background-image: url('assets/img/bg-header.jpg');
+	top: 0;
+	position: fixed;
+	z-index: -1;
+}
+
+footer {
+	width: 100%;
+	height: 300px;
+	background: gray;
+	bottom: -300px;
+	position: fixed;
+	z-index: -1;
+}
+
+.content {
+	padding: 2vh;
+	height: 1000px;
+	min-height: 1000px;
+	background: var(--c-bg-secondary);
+	position: relative;
+	z-index: 1;
+}
+
+.wrapper-parallax {
+	margin-top: 100%;
+	margin-bottom: 300px;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	text-transform: uppercase;
+	text-align: center;
+	font-family: Helvetica;
+	font-size: 150px;
+	color: #fff;
+}
+
+.content h1 {
+	font-size: calc(2vw + 10px);
+	color: #999;
+}
+
+footer h1 {
+	line-height: 300px;
+}
+
+header,footer,#scroll-animate-main {
+	-webkit-transition-property: all;
+		-moz-transition-property: all;
+		transition-property: all;
+
+	-webkit-transition-duration: 0.4s;
+		-moz-transition-duration: 0.4s;
+		transition-duration: 0.4s;
+
+	-webkit-transition-timing-function: cubic-bezier(0, 0, 0, 1);
+		-moz-transition-timing-function: cubic-bezier(0, 0, 0, 1);
+		transition-timing-function: cubic-bezier(0, 0, 0, 1);
+}
